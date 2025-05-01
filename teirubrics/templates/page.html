@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/zephyr/bootstrap.min.css" integrity="sha512-CWXb9sx63+REyEBV/cte+dE1hSsYpJifb57KkqAXjsN3gZQt6phZt7e5RhgZrUbaNfCdtdpcqDZtuTEB+D3q2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+
+            header {
+                padding-bottom: 0px !important;
+                padding-top: 0px !important;
+                text-align: center;
+            }
+            .bg-image-full {
+                background-image: linear-gradient(#303d4e, #151E1D);
+                width: 100%;
+                background-size: 100%;
+                margin-bottom: 30px;
+            }
+              
+            header img {
+                position: relative;
+                max-height: 250px;
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .publications-container {
+            }
+            .themata-body {
+                position: relative;
+            }
+            label {
+                color: #b94a48;
+                font-size: 0.9rem;
+              }
+              
+            .field {
+                margin-bottom: 1.1rem;
+            }
+            
+            h1 {
+                padding-top: 5px;
+            }
+            h2 {
+                padding-top: 5px;
+            }
+            h3 {
+                padding-top: 5px;
+            }
+        </style>            
+        
+    </head>
+    <body>
+        <div class="themata-body">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                </div>
+            </nav>
+            
+            <!-- start content -->
+            <div class="container">
+                {{ content }}
+            </div>
+            <!-- end content -->
+            
+            <footer class="p-3 mt-5 mb-0 bg-primary text-white">
+                {{ footer }}
+            </footer>     
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- Your stuff: Third-party javascript libraries go here -->
+        <script src="https://use.fontawesome.com/releases/v5.15.0/js/all.js"></script>
+
+        <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+            $(".publications-container").addClass("container");
+        });        
+        </script>
+  
+        <!-- start js -->
+        {{ js }}
+        <!-- end js -->
+    </body>
+</html>

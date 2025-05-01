@@ -1,0 +1,11 @@
+{% if verse %}
+<b>{{ verse }}</b> ({{ source }} f. {% if facs %}<a href='{{ facs }}'>{{ folio }}</a>{% else %}{{ folio }}{% endif %})<br>
+{% endif %}
+{% if original_text %}
+{{ original_text }}<br>
+{% endif %}
+{% if translation %}
+{{ translation }}
+{% endif %}
+{% if folio %}
+{% endif %}
