@@ -96,6 +96,7 @@ def by_date(
         sigla=sigla,
         output_path=output,
         display_facs=display_facs,
+        title="Collation of Rubrics by Verse",
     )    
 
 
@@ -137,4 +138,5 @@ def by_verse(
         output_path=output,
         display_verse=False,
         display_facs=display_facs,
+        title="Collation of Rubrics by Verse",
     )

@@ -14,7 +14,6 @@ Install using pip:
 
     pip install git+https://github.com/rbturnbull/teirubrics.git
 
-
 Usage
 ==================================
 
@@ -29,6 +28,12 @@ To collate by vse, use the following command:
 .. code-block:: bash
 
     teirubrics by-verse S155.xml S73.xml --verse-list ArabGr1-Verses.txt --output reports/verses.html
+
+More options are available, see:
+
+.. code-block:: bash
+
+    teirubrics --help
 
 Credit
 ============

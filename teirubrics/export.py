@@ -24,6 +24,7 @@ def export_data(
     display_verse:bool=True, 
     display_folio:bool=True,
     display_facs:bool=True,
+    title:str="",
 ):
     templates = Path(__file__).parent / "templates"
     env = Environment(loader=FileSystemLoader(templates))
@@ -77,6 +78,7 @@ def export_data(
         headers=[key_name] + sigla,
     )
     page = env.get_template('page.html').render(
+        title=title,
         content=table,
     )
     print("Exporting to", output_path)
