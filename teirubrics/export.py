@@ -58,6 +58,7 @@ def export_data(
                     verse = convert_roman_prefix(verse)
                     verse = add_space_after_book(verse)
 
+
                     item = rubric_template.render(
                         original_text=original_text,
                         translation=translation,

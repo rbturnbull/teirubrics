@@ -1,6 +1,4 @@
-{% if verse %}
-<b>{{ verse }}</b> ({{ source }} f. {% if facs %}<a href='{{ facs }}'>{{ folio }}</a>{% else %}{{ folio }}{% endif %})<br>
-{% endif %}
+{% if verse %}<b>{{ verse }}</b> ({% endif %}{{ source }} f. {% if facs %}<a href='{{ facs }}'>{{ folio }}</a>{% else %}{{ folio }}{% endif %}{% if verse %}){% endif %}<br>
 {% if original_text %}
 {{ original_text }}<br>
 {% endif %}
