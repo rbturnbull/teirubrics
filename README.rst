@@ -2,12 +2,12 @@
 teirubrics
 =========================
 
-Collates rubrics from multiple TEI XML files and creates static HTML reports
+Collate lectionary rubrics from multiple TEI XML files and create static HTML reports.
 
 Installation
-==================================
+=========================
 
-Install using pip:
+Install directly using pip:
 
 .. code-block:: bash
 
@@ -15,9 +15,9 @@ Install using pip:
 
 
 Encoding
-==================================
+=========================
 
-To use this library, lectionary rubrics are represented using the
+To use this library, lectionary rubrics should be represented using the
 `Text Encoding Initiative (TEI) <https://tei-c.org>`_.  
 TEI provides a hierarchical markup language capable of expressing the complex
 textual features typically found in manuscript sources—such as corrections,
@@ -43,27 +43,27 @@ The following subelements are used:
 * ``<msContents>`` — summary of the manuscript’s content
 * ``<physDesc>`` — description of the support material, format, and foliation
 
-For example, here is an example of the encoding of BnF 378/8:
+Example:
 
 .. code-block:: xml
 
     <msDesc xml:id="BnF_syr_378_VIII" n="BnF378/8">
         <msIdentifier>
-        <settlement>Bibliothèque nationale de France</settlement>
-        <idno>Syr. 378, Part VIII</idno>
+            <settlement>Bibliothèque nationale de France</settlement>
+            <idno>Syr. 378, Part VIII</idno>
         </msIdentifier>
         <msContents>
-        <summary>Summa Theologiae Arabica, chapters 12 and 13</summary>
+            <summary>Summa Theologiae Arabica, chapters 12 and 13</summary>
         </msContents>
         <physDesc>
-        <objectDesc form="codex">
-            <supportDesc material="parch">
-            <support>
-                <p>Parchment</p>
-            </support>
-            <extent>2 folios</extent>
-            </supportDesc>
-        </objectDesc>
+            <objectDesc form="codex">
+                <supportDesc material="parch">
+                    <support>
+                        <p>Parchment</p>
+                    </support>
+                    <extent>2 folios</extent>
+                </supportDesc>
+            </objectDesc>
         </physDesc>
     </msDesc>
 
@@ -93,12 +93,12 @@ Each liturgical event (e.g., a feast or commemoration) is represented by
 an ``<event>`` element with a unique ``xml:id`` and a human-readable label.
 If the calendar date is fixed, it is recorded in the ``@when`` attribute.
 
-For example:
+Example:
 
 .. code-block:: xml
 
     <event xml:id="FortyMartyrs" when="--03-09">
-      <label>Forty Martyrs of Sebaste</label>
+        <label>Forty Martyrs of Sebaste</label>
     </event>
 
 **Places**
@@ -110,17 +110,17 @@ for mapping purposes.
 Both the events and places lists are stored in separate TEI files and linked
 into each witness file via XInclude.
 
-For example:
+Example:
 
 .. code-block:: xml
 
-  <place xml:id="Jerusalem">
-    <placeName>Jerusalem</placeName>
-    <location>
-      <geo decls="wgs84">31.778333 35.229722</geo>
-      <precision match="city"/>
-    </location>  
-  </place>
+    <place xml:id="Jerusalem">
+        <placeName>Jerusalem</placeName>
+        <location>
+            <geo decls="wgs84">31.778333 35.229722</geo>
+            <precision match="city"/>
+        </location>
+    </place>
 
 
 Body Structure
@@ -159,35 +159,35 @@ typically containing:
   with embedded ``<place>`` and ``<date>`` elements linking to the
   stand-off lists
 
-For example:
+Example:
 
 .. code-block:: xml
 
     <div type="rubric" corresp="ICor10:1">
         <anchor source="#S155" n="66r" facs="https://iiif.sinaimanuscripts.library.ucla.edu/iiif/2/ark%3A%2F21198%2Fz1bs09w9%2F9071641s/full/1500,/0/default.jpg"/>
         <head rend="red cross-decorated">
-        <choice>
-            <orig xml:lang="ar">
-            <l>تقرا في يوم صوم القلند في القدس</l>
-            </orig>
-            <reg type="translation" xml:lang="en">
-            Read on the <date when-custom="#TheophanyVigil">day of the Fast of Kalends</date>
-            in <placeName ref="#Jerusalem">Jerusalem</placeName>.
-            </reg>
-        </choice>
+            <choice>
+                <orig xml:lang="ar">
+                    <l>تقرا في يوم صوم القلند في القدس</l>
+                </orig>
+                <reg type="translation" xml:lang="en">
+                    Read on the <date when-custom="#TheophanyVigil">day of the Fast of Kalends</date>
+                    in <placeName ref="#Jerusalem">Jerusalem</placeName>.
+                </reg>
+            </choice>
         </head>
     </div>
 
 
 Usage of teirubrics
-===================
+=========================
 
 The TEI XML serves as the *single source of truth*.  
 Derived representations—such as collations or visualizations—can be generated
 programmatically.
 
 The `teirubrics <https://github.com/rbturnbull/teirubrics>`_ Python library
-is provided to process multiple TEI XML files and generate static HTML reports.
+processes multiple TEI XML files and generates static HTML reports.
 These reports collate rubrics by **liturgical date** or **biblical verse** and
 include links to translations and facsimile images.
 
@@ -200,19 +200,19 @@ Command-line options include:
 The resulting HTML reports enable cross-witness comparison of rubrics across
 languages and traditions.
 
-To collate by date, use the following command:
+To collate by date, use:
 
 .. code-block:: bash
 
     teirubrics by-date S155.xml S73.xml --output reports/dates.html
 
-To collate by vse, use the following command:
+To collate by verse, use:
 
 .. code-block:: bash
 
     teirubrics by-verse S155.xml S73.xml --verse-list ArabGr1-Verses.txt --output reports/verses.html
 
-More options are available, see:
+For more options:
 
 .. code-block:: bash
 
@@ -220,21 +220,43 @@ More options are available, see:
 
 
 Example
-================
+=========================
 
-To see examples of using this encoding scheme, go to https://github.com/rbturnbull/ArabGr1Rubrics
+To see examples of this encoding scheme, visit
+https://github.com/rbturnbull/ArabGr1Rubrics
 
-It has TEI XML files for two manuscripts (S155 and S73) released under a
+That repository includes TEI XML files for two manuscripts (S155 and S73)
+released under a
 `Creative Commons Attribution 4.0 License (CC BY 4.0)
 <https://creativecommons.org/licenses/by/4.0/>`_.
 
-The GitHub repository includes continuous integration (CI) testing to validate the TEI XML files at every push. 
-The repository includes the static HTML reports with collations by verse and by date which are published at https://rbturnbull.github.io/ArabGr1Rubrics/
+It also includes continuous integration (CI) tests to validate the TEI XML
+files at every push, and static HTML reports with collations by verse and
+by date published at https://rbturnbull.github.io/ArabGr1Rubrics/
 
 
 Credit
-============
+=========================
 
-See the forthcoming chapter 'Hagiopolite Rubrics in an Arabic Version of Paul' for more details.
+For further background, see the forthcoming chapter:
 
-Robert Turnbull https://robturnbull.com
+Turnbull, Robert. “The Arabic Tradition: Hagiopolite Rubrics in an Arabic Version of Paul.” 
+Edited by Jost Gippert, Mariam Kamarauli, and Eka Kvirkvelia. 
+_The Ecumene of the Jerusalem Rite: Lectionary Traditions of the First Millennium_. 
+Eastern Christian Cultures in Contact. Turnhout: Brepols, 2026.
+
+.. code-block:: bibtex
+
+    @bookchapter{hagiopoliterubrics,
+    author = {Turnbull, Robert},
+    title = {{The Arabic Tradition: Hagiopolite Rubrics in an Arabic Version of Paul}},
+    year = {2026},
+    booktitle = {{The Ecumene of the Jerusalem Rite: Lectionary Traditions of the First Millennium}},
+    publisher = {Brepols},
+    address = {Turnhout},
+    series = {Eastern Christian Cultures in Contact},
+    editor = {Gippert, Jost and Kamarauli, Mariam and Kvirkvelia, Eka}
+    }
+
+
+Author: `Robert Turnbull <https://robturnbull.com>`_
